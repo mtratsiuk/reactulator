@@ -1,7 +1,10 @@
 import test from 'ava'
-// import React from 'react'
-// import { shallow } from 'enzyme'
+import React from 'react'
+import { shallow } from 'enzyme'
+
+import App from './App'
 
 test('Test works', t => {
-  t.truthy(42)
+  const wrapper = shallow(<App />)
+  t.is(wrapper.text(), 'hello, world!')
 })

@@ -9,7 +9,8 @@ import App from './components/App'
 import * as reducers from './reducers'
 
 const store = createStore(
-  combineReducers({ ...reducers })
+  combineReducers({ ...reducers }),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
 render(

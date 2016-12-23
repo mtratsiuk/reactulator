@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Display = ({ numbers, active }) => (
+const Display = ({ expression, active }) => (
   <section>
-    {active ? numbers.join('') : 'OFF'}
+    {active ? expression : 'OFF'}
   </section>
 )
 
 export default connect(
   state => ({
-    numbers: state.display,
+    expression: state.expression,
     active: state.active
   })
 )(Display)

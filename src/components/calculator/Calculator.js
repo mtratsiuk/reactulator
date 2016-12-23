@@ -1,13 +1,27 @@
 import React from 'react'
 
-import Display from '../display/Display'
-import NumericKeys from '../numeric-keys/NumericKeys'
+import './Calculator.less'
 
-const Calculator = (_, context) => (
-  <section>
-    <Display />
-    <hr />
-    <NumericKeys />
+import Display from '../display/Display'
+import ButtonGroup from '../button-group/ButtonGroup'
+
+import numericBtns from './numeric-buttons'
+import actionBtns from './action-buttons'
+import secondaryBtns from './secondary-buttons'
+
+const Calculator = () => (
+  <section className='Calculator'>
+    <header className='Calculator__header'>
+      Basic Mode
+    </header>
+    <div className='Calculator__display-container'>
+      <Display />
+    </div>
+    <div className='Calculator__keyboard-container'>
+      <ButtonGroup buttons={secondaryBtns} groupName={'secondary'} />
+      <ButtonGroup buttons={numericBtns} groupName={'numeric'} />
+      <ButtonGroup buttons={actionBtns} groupName={'action'} />
+    </div>
   </section>
 )
 

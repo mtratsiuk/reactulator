@@ -1,0 +1,25 @@
+@import (reference) '../App';
+
+.Button {
+  width: @button-width;
+  height: @button-height;
+  background-color: @buttons-bg-color;
+  border: 1px solid @border-color;
+  border-radius: @border-radius / 2;
+  color: @white;
+  box-shadow: 0 0 1px @border-color;
+  font-size: 20px;
+  vertical-align: middle;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    border-color: darken(@buttons-secondary-bg-color, 5%);
+    box-shadow: 0 0 1px darken(@buttons-secondary-bg-color, 5%);
+    background-color: @buttons-secondary-bg-color;
+  }
+}
+

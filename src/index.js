@@ -4,6 +4,8 @@ import { render } from 'react-dom'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 
+import './index.less'
+
 import App from './components/App'
 
 import * as reducers from './reducers'

@@ -1,0 +1,27 @@
+@calc-width: 480px;
+@calc-height: 640px;
+
+.media-mobile-width(@rules) {
+  @media screen and (max-width: @calc-width) {
+    @rules();
+  }
+}
+
+.media-mobile-height(@rules) {
+  @media screen and (max-height: @calc-height) {
+    @rules();
+  }
+}
+
+.flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column() {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

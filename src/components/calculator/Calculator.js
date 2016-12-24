@@ -12,7 +12,7 @@ import secondaryBtns from './secondary-buttons'
 const Calculator = () => (
   <section className='Calculator'>
     <header className='Calculator__header'>
-      Basic Mode
+      Reactulator
     </header>
     <div className='Calculator__display-container'>
       <Display />

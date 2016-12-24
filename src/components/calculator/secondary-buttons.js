@@ -1,6 +1,12 @@
-import { expressionClick } from '../../actions/keyboard'
+import { expressionClick, backspaceClick, clearClick } from '../../actions'
 
-export default 'ON,MR,M+,M-'.split(',').map(k => ({
+export default '()'.split('').map(k => ({
   text: k,
-  action: () => {}
-}))
+  action: expressionClick.bind(null, k)
+})).concat({
+  text: '⇐',
+  action: backspaceClick
+}).concat({
+  text: 'C',
+  action: clearClick
+})

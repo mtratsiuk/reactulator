@@ -4,7 +4,6 @@ import { shallow } from 'enzyme'
 
 import App from './App'
 
-test('Test works', t => {
-  const wrapper = shallow(<App />)
-  t.is(wrapper.text(), 'hello, world!')
+test('App starts without crash', t => {
+  shallow(<App />)
 })

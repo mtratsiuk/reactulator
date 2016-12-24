@@ -13,7 +13,8 @@ class ButtonGroup extends Component {
       <section className={`ButtonGroup ButtonGroup_${groupName}`}>
         {buttons.map(btn =>
           <Button onClick={() => dispatch(btn.action())}
-            key={btn.text}>
+            key={btn.text}
+            className={btn.className}>
             {btn.text}
           </Button>
         )}

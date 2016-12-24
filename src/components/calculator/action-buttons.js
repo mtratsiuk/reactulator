@@ -1,6 +1,16 @@
-import { expressionClick } from '../../actions/keyboard'
+import { expressionClick, equalsClick } from '../../actions'
 
-export default '+-*/='.split('').map(k => ({
-  text: k,
-  action: expressionClick.bind(null, k)
-}))
+const advancedFuncs = ['sin', 'cos', 'tan', 'log']
+
+export default '+,-,^,*,sin,cos,/,tan,log'.split(',').map(k => {
+  const key = advancedFuncs.includes(k) ? `${k}(` : k
+  return {
+    text: k,
+    action: expressionClick.bind(null, key)
+  }
+}).concat({
+  text: '=',
+  action: equalsClick,
+  className: 'equals'
+})
+

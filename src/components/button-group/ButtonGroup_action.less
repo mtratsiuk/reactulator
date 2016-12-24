@@ -1,3 +1,22 @@
+@import (reference) '../App';
+
 .ButtonGroup_action {
   width: 50%;
+}
+
+.ButtonGroup_action > .Button {
+  width: 32%;
+}
+
+.ButtonGroup_action > .Button_equals {
+  width: 100%;
+  background-color: @buttons-secondary-bg-color;
+  border-color: darken(@buttons-secondary-bg-color, 5%);
+  box-shadow: 0 0 1px darken(@buttons-secondary-bg-color, 5%);
+
+  &:active {
+    background-color: darken(@buttons-secondary-bg-color, 7%);
+    border-color: darken(@buttons-secondary-bg-color, 9%);
+    box-shadow: 0 0 1px darken(@buttons-secondary-bg-color, 9%);
+  }
 }

@@ -1,19 +1,32 @@
 import { actionTypes } from '../actions'
 
-const trimZeroes = numStr => numStr.replace(/^0+/, '')
+const trimZeros = numStr => numStr.replace(/^0+/, '')
 
 const defaultExpression = '0'
 
 export const expression = (state = defaultExpression, action) => {
   switch (action.type) {
     case actionTypes.EXPRESSION_KEY_CLICK:
-      return trimZeroes(state + action.payload) || defaultExpression
+      return trimZeros(state + action.payload) || defaultExpression
     case actionTypes.BACKSPACE_KEY_CLICK:
-      return state.slice(0, -1)
+      return state.slice(0, -1) || defaultExpression
     case actionTypes.CLEAR_KEY_CLICK:
       return defaultExpression
     case actionTypes.EXPRESSION_EVALUATED:
-      return String(action.payload)
+      return String(action.payload.result)
+    default:
+      return state
+  }
+}
+
+export const evaluationHistory = (state = [], action) => {
+  switch (action.type) {
+    case actionTypes.EXPRESSION_EVALUATED:
+      if (state.length &&
+          state[state.length - 1].expression === action.payload.expression) {
+        return state
+      }
+      return state.concat(action.payload)
     default:
       return state
   }

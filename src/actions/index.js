@@ -15,13 +15,13 @@ export const expressionClick = value => ({
 })
 
 export const equalsClick = () => async (dispatch, getState) => {
-  dispatch({ type: actionTypes.EQUALS_KEY_CLICK })
   const { expression } = getState()
+  dispatch({ type: actionTypes.EQUALS_KEY_CLICK })
   try {
     const result = await evalExpression(expression)
     dispatch({
       type: actionTypes.EXPRESSION_EVALUATED,
-      payload: result
+      payload: { result, expression }
     })
   } catch (error) {
     dispatch({

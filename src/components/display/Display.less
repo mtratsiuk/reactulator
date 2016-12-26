@@ -1,6 +1,75 @@
 @import (reference) '../App';
+@import (reference) '../../shared';
 
 .Display {
+  .flex-column();
+  height: 100%;
+  width: 100%;
   color: @display-text-color;
   font-size: 20px;
+
+  & > * {
+    flex-shrink: 0;
+  }
+
+  &__error {
+    .flex-center();
+    justify-content: flex-end;
+    align-self: flex-end;
+    height: 10%;
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  &__history-container {
+    height: 60%;
+    width: 95%;
+    display: flex;
+    font-size: 18px;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  &__history-row {
+    .flex-center();
+    justify-content: space-between;
+
+    & > * {
+      flex: 0 0 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__expression-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 95%;
+    height: 20%;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: clip;
+    border-top: 1px solid darken(@display-bg-color, 7%);
+  }
+
+  &__expression {
+  }
+}
+
+.Display-history-row {
+
+  &__expression {
+    flex-basis: 60%;
+  }
+
+  &__equal-sign {
+    flex-basis: 5%;
+  }
+
+  &__result {
+    flex-basis: 35%;
+    text-align: end;
+  }
 }

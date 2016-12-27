@@ -9,7 +9,7 @@ import numericBtns from './numeric-buttons'
 import actionBtns from './action-buttons'
 import secondaryBtns from './secondary-buttons'
 
-const Calculator = () => (
+const Calculator = () =>
   <section className='Calculator'>
     <header className='Calculator__header'>
       Reactulator
@@ -23,6 +23,5 @@ const Calculator = () => (
       <ButtonGroup buttons={actionBtns} groupName={'action'} />
     </div>
   </section>
-)
 
 export default Calculator

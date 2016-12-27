@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { shorten } from '../../services/math'
 
 import { expressionChanged } from '../../actions'
 
 import './Display.less'
 
 const renderError = error =>
-  <div className='Display__error'>
+  <div className='Display__error'
+    style={{opacity: error ? 1 : 0}}>
     {error}
   </div>
 
@@ -20,7 +22,7 @@ const renderHistory = history =>
           </span>
           <span className='Display-history-row__equal-sign'>=</span>
           <span className='Display-history-row__result'>
-            {h.result}
+            {shorten(h.result)}
           </span>
         </div>
       )}

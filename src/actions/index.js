@@ -24,7 +24,7 @@ export const equalsClick = () => async (dispatch, getState) => {
   const { expression } = getState()
   dispatch({ type: actionTypes.EQUALS_KEY_CLICK })
   try {
-    const result = String(await evalExpression(expression))
+    const result = await evalExpression(expression)
     dispatch({
       type: actionTypes.EXPRESSION_EVALUATED,
       payload: { result, expression }

@@ -16,10 +16,9 @@
   &__error {
     position: absolute;
     top: 0;
-    right: 0;
+    width: 100%;
     .flex-center();
-    justify-content: flex-end;
-    align-self: flex-end;
+    justify-content: center;
     height: 10%;
     font-size: 12px;
     font-style: italic;
@@ -71,6 +70,7 @@
   }
 
   &__expression {
+    flex: 2;
     color: inherit;
     border: none;
     outline: none;
@@ -82,7 +82,7 @@
 .Display-history-row {
 
   &__expression {
-    flex-basis: 60%;
+    flex-basis: 65%;
   }
 
   &__equal-sign {
@@ -90,7 +90,7 @@
   }
 
   &__result {
-    flex-basis: 35%;
+    flex-basis: 30%;
     text-align: end;
   }
 }

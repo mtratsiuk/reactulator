@@ -10,17 +10,19 @@ const renderError = error =>
 
 const renderHistory = history =>
   <div className='Display__history-container'>
-    {history.map((h, i) =>
-      <div className='Display__history-row' key={`${h.expression}#${i}`}>
-        <span className='Display-history-row__expression'>
-          {h.expression}
-        </span>
-        <span className='Display-history-row__equal-sign'>=</span>
-        <span className='Display-history-row__result'>
-          {h.result}
-        </span>
-      </div>
-    )}
+    <div className='Display__history-rows'>
+      {history.map((h, i) =>
+        <div className='Display__history-row' key={`${h.expression}#${i}`}>
+          <span className='Display-history-row__expression'>
+            {h.expression}
+          </span>
+          <span className='Display-history-row__equal-sign'>=</span>
+          <span className='Display-history-row__result'>
+            {h.result}
+          </span>
+        </div>
+      )}
+    </div>
   </div>
 
 const renderExpression = expression =>

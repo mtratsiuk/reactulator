@@ -4,12 +4,16 @@ const trimZeros = numStr => numStr.replace(/^0+/, '')
 
 const defaultExpression = '0'
 
+const processExpression = expr => trimZeros(expr) || defaultExpression
+
 export const expression = (state = defaultExpression, action) => {
   switch (action.type) {
     case actionTypes.EXPRESSION_KEY_CLICK:
-      return trimZeros(state + action.payload) || defaultExpression
+      return processExpression(state + action.payload)
+    case actionTypes.EXPRESSION_CHANGED:
+      return processExpression(action.payload)
     case actionTypes.BACKSPACE_KEY_CLICK:
-      return state.slice(0, -1) || defaultExpression
+      return processExpression(state.slice(0, -1))
     case actionTypes.CLEAR_KEY_CLICK:
       return defaultExpression
     case actionTypes.EXPRESSION_EVALUATED:

@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { expressionChanged } from '../../actions'
+
 import './Display.less'
 
 const renderError = error =>
@@ -25,20 +27,27 @@ const renderHistory = history =>
     </div>
   </div>
 
-const renderExpression = expression =>
+const renderExpression = (expression, onExpressionChange) =>
   <div className='Display__expression-container'>
-    <div className='Display__expression'>
-      {expression}
-    </div>
+    <input type='text'
+      className='Display__expression'
+      value={expression}
+      onChange={onExpressionChange}
+      />
   </div>
 
-const Display = ({ expression, history, error, active }) =>
-  !active
+const Display = ({
+  expression,
+  history,
+  error,
+  active,
+  onExpressionChange
+}) => !active
     ? <section className='Display' />
     : <section className='Display'>
       {renderError(error)}
       {renderHistory(history)}
-      {renderExpression(expression)}
+      {renderExpression(expression, onExpressionChange)}
     </section>
 
 export default connect(
@@ -47,5 +56,10 @@ export default connect(
     history: state.evaluationHistory,
     error: state.evaluationError,
     active: state.active
+  }),
+  dispatch => ({
+    onExpressionChange: event => dispatch(
+      expressionChanged(event.target.value)
+    )
   })
 )(Display)

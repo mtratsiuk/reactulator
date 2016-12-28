@@ -6,17 +6,17 @@ import { expressionChanged } from '../../actions'
 
 import './Display.less'
 
-const renderError = error =>
+export const renderError = error =>
   <div className='Display__error'
     style={{opacity: error ? 1 : 0}}>
     {error}
   </div>
 
-const renderHistory = history =>
+export const renderHistory = history =>
   <div className='Display__history-container'>
     <div className='Display__history-rows'>
       {history.map((h, i) =>
-        <div className='Display__history-row' key={`${h.expression}#${i}`}>
+        <div className='Display__history-row' key={i}>
           <span className='Display-history-row__expression'>
             {h.expression}
           </span>
@@ -29,7 +29,7 @@ const renderHistory = history =>
     </div>
   </div>
 
-const renderExpression = (expression, onExpressionChange) =>
+export const renderExpression = (expression, onExpressionChange) =>
   <div className='Display__expression-container'>
     <input type='text'
       className='Display__expression'
@@ -38,7 +38,7 @@ const renderExpression = (expression, onExpressionChange) =>
       />
   </div>
 
-const Display = ({
+export const Display = ({
   expression,
   history,
   error,

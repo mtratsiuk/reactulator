@@ -1,9 +1,10 @@
 import React from 'react'
 import test from 'ava'
+import sinon from 'sinon'
 import { shallow } from 'enzyme'
 import { shorten } from '../../services/math'
 
-import { Display, renderError } from './Display'
+import { Display, renderError, renderExpression } from './Display'
 
 const noop = () => {}
 
@@ -15,6 +16,15 @@ test('#renderError should render visible error', t => {
 test('#renderError should render invisible error', t => {
   const wrapper = shallow(renderError(''))
   t.falsy(wrapper.prop('style').opacity)
+})
+
+test('#renderExpression should call #onExpressionChange on input change', t => {
+  const onExpressionChange = sinon.spy()
+  const event = {}
+  const wrapper = shallow(renderExpression('1+2/3', onExpressionChange))
+
+  wrapper.find('.Display__expression').simulate('change', event)
+  t.true(onExpressionChange.calledWith(event))
 })
 
 test('#Display renders correctly when active', t => {

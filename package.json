@@ -21,6 +21,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "react-addons-test-utils": "^15.4.1",
+    "sinon": "^1.17.6",
     "standard": "^8.6.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
@@ -38,7 +39,17 @@
   },
   "babel": {
     "presets": [
-      "env",
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 Chrome versions"
+            ]
+          },
+          "useBuiltIns": true
+        }
+      ],
       "react"
     ],
     "plugins": [

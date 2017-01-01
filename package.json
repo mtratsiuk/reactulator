@@ -1,7 +1,7 @@
 {
   "name": "reactulator",
   "version": "1.0.0",
-  "description": "",
+  "description": "'Hello, World' project to try out React and its ecosystem",
   "main": "index.js",
   "author": "Mihail Tratsiuk",
   "license": "ISC",
@@ -81,6 +81,6 @@
     "build": "webpack --config webpack.config.prod.js",
     "report": "nyc report --reporter=html",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build"
   }
 }

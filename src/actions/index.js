@@ -20,20 +20,24 @@ export const expressionChanged = expr => ({
   payload: expr
 })
 
+export const expressionEvaluated = (result, expression) => ({
+  type: actionTypes.EXPRESSION_EVALUATED,
+  payload: { result, expression }
+})
+
+export const expressionEvaluationError = error => ({
+  type: actionTypes.EXPRESSION_EVALUATION_ERROR,
+  payload: error
+})
+
 export const equalsClick = () => async (dispatch, getState) => {
   const { expression } = getState()
   dispatch({ type: actionTypes.EQUALS_KEY_CLICK })
   try {
     const result = await evalExpression(expression)
-    dispatch({
-      type: actionTypes.EXPRESSION_EVALUATED,
-      payload: { result, expression }
-    })
+    dispatch(expressionEvaluated(result, expression))
   } catch (error) {
-    dispatch({
-      type: actionTypes.EXPRESSION_EVALUATION_ERROR,
-      payload: error
-    })
+    dispatch(expressionEvaluationError(error))
   }
 }
 

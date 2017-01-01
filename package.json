@@ -81,6 +81,6 @@
     "build": "webpack --config webpack.config.prod.js",
     "report": "nyc report --reporter=html",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "deploy": "npm run build && git config user.name \"travis\" && git config user.email \"travis\" && gh-pages -d build -r \"https://mtratsiuk:${GITHUB_API_KEY}@github.com/mtratsiuk/reactulator.git\" &2> /dev/null"
+    "deploy": "npm run build && git config user.name \"travis\" && git config user.email \"travis\" && gh-pages -d build -r \"https://mtratsiuk:${GITHUB_API_KEY}@github.com/mtratsiuk/reactulator.git\""
   }
 }

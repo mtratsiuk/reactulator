@@ -1,6 +1,6 @@
 {
   "name": "reactulator",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "author": "Mihail Tratsiuk",
@@ -19,6 +19,7 @@
     "css-loader": "^0.26.1",
     "enzyme": "^2.6.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.24.1",
     "ignore-styles": "^5.0.1",
     "less": "^2.7.1",
@@ -72,11 +73,14 @@
     "babel": "inherit"
   },
   "scripts": {
+    "start": "npm run serve",
     "lint": "standard",
     "test": "npm run lint && nyc ava",
-    "report": "nyc report --reporter=html",
     "test:watch": "ava --watch",
     "serve": "webpack-dev-server --config webpack.config.dev.js --content-base build/ --inline --hot",
-    "build": "webpack --config webpack.config.prod.js"
+    "build": "webpack --config webpack.config.prod.js",
+    "report": "nyc report --reporter=html",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "deploy": "gh-pages -d build"
   }
 }

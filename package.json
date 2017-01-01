@@ -81,6 +81,6 @@
     "build": "webpack --config webpack.config.prod.js",
     "report": "nyc report --reporter=html",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "deploy": "npm run build && gh-pages -d build -r \"https://mtratsiuk:${GITHUB_API_KEY}@github.com/mtratsiuk/reactulator.git\""
+    "deploy": "gh-pages -d build -r \"https://mtratsiuk:${GITHUB_API_KEY}@github.com/mtratsiuk/reactulator.git\""
   }
 }
